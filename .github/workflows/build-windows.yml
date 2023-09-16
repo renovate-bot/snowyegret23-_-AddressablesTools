@@ -24,14 +24,8 @@ jobs:
     - name: Setup MSBuild.exe
       uses: microsoft/setup-msbuild@v1.1
 
-    - name: Build AddressablesTools
-      run: msbuild AddressablesTools.sln /restore /p:Configuration=Release
-    
     - name: Restore NuGet packages
       run: msbuild /t:restore
-      
-    - name: Upload
-      uses: actions/upload-artifact@v2
-      with:
-        name: AddressablesTools-windows
-        path: AddressablesTools/bin/Release/net6.0
+
+    - name: Build AddressablesTools
+      run: msbuild AddressablesTools.sln /restore /p:Configuration=Release
