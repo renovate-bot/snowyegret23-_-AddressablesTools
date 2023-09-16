@@ -29,3 +29,6 @@ jobs:
 
     - name: Build AddressablesTools
       run: msbuild AddressablesTools.sln /restore /p:Configuration=Release
+    
+    - name: Build Example
+      run: msbuild Example/Example.csproj /restore /p:Configuration=Release
