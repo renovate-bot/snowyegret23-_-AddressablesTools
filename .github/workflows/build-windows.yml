@@ -37,10 +37,10 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: uabea-windows
-        path: AddressablesTools/AddressablesTools/bin/Release/net6.0
+        path: AddressablesTools/bin/Release/net6.0
 
     - name: Upload Example
       uses: actions/upload-artifact@v2
       with:
         name: uabea-windows
-        path: AddressablesTools/Example/bin/Release/net6.0
+        path: Example/bin/Release/net6.0
