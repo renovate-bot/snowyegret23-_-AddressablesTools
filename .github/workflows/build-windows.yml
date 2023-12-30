@@ -84,6 +84,6 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: ./Example/bin/Release/net6.0/Example-windows.zip
-        asset_name: Example-windows.zip
+        asset_path: ./AddressablesTools/bin/Release/net6.0/
+        asset_name: AddressablesTools-windows.zip
         asset_content_type: application/zip
