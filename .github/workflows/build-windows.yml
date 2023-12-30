@@ -45,6 +45,18 @@ jobs:
         name: Example-windows
         path: Example/bin/Release/net6.0
 
+    - name: Download AddressablesTools
+      uses: actions/download-artifact@v2
+      with:
+        name: AddressablesTools-windows
+        path: AddressablesTools/bin/Release/net6.0
+
+    - name: Download Example
+      uses: actions/download-artifact@v2
+      with:
+        name: Example-windows
+        path: Example/bin/Release/net6.0
+
     - name: Create Release
       id: create_release
       uses: actions/create-release@v1
