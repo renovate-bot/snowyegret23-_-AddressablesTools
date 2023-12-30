@@ -44,3 +44,34 @@ jobs:
       with:
         name: Example-windows
         path: Example/bin/Release/net6.0
+
+    - name: Create Release
+      id: create_release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: ${{ github.sha }}
+        release_name: Release ${{ github.sha }}
+        draft: false
+        prerelease: false
+
+    - name: Upload Release Asset
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: ./AddressablesTools/bin/Release/net6.0/AddressablesTools-windows.zip
+        asset_name: AddressablesTools-windows.zip
+        asset_content_type: application/zip
+
+    - name: Upload Release Asset
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: ./Example/bin/Release/net6.0/Example-windows.zip
+        asset_name: Example-windows.zip
+        asset_content_type: application/zip
